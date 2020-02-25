@@ -1,4 +1,4 @@
-package com.smoothstack.avalance.lms.security.config;
+package com.smoothstack.avalanche.ars.authtoken.config;
 
 
 import java.io.IOException;
@@ -35,7 +35,6 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 		this.authManager = authManager;
 		this.jwtConfig = jwtConfig;
 		
-		// By default: "/login" is used. We are still using "/login" to handle. Just incase we decide to change the /login page.
 		this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(jwtConfig.getUri(), "POST"));
 	}
 	
@@ -73,7 +72,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 				.map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
 			.setIssuedAt(new Date(now))
 			.setExpiration(new Date(now + jwtConfig.getExpiration() * 1000)) //expiration based on jwtconfig
-			.signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes())
+			.signWith(SignatureAlgorithm.HS256, jwtConfig.getSecret().getBytes())
 			.compact();
 		
 		// Add token to header

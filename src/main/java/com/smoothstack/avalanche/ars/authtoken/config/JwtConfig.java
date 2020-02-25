@@ -1,11 +1,11 @@
-package com.smoothstack.avalance.lms.security.config;
+package com.smoothstack.avalanche.ars.authtoken.config;
 
 import org.springframework.beans.factory.annotation.Value;
 
 public class JwtConfig {
 
 	//The path
-	@Value("${security.jwt.uri:/login}")
+	@Value("${security.jwt.uri:/account}")
     private String Uri;
 
 	//header: Authorization
@@ -19,7 +19,7 @@ public class JwtConfig {
     @Value("${security.jwt.expiration:#{24*60*60}}")
     private int expiration;
 
-    @Value("${security.jwt.secret:JwtSecretKey}")
+    @Value("${security.jwt.secret:AzKseb6e3MqQeBuJp}")
     private String secret;
 
 	public String getUri() {

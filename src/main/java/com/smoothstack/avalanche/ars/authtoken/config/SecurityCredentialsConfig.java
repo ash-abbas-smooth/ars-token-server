@@ -1,4 +1,4 @@
-package com.smoothstack.avalance.lms.security.config;
+package com.smoothstack.avalanche.ars.authtoken.config;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
